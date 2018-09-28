@@ -8,7 +8,8 @@ tp_lead = tf(leadnum, leadden);
 lagnum = [10 1];
 lagden = [100 1];
 tp_lag = tf(lagnum, lagden);
-
+tp_lead = tp * tp_lead
+tp_lag = tp*tp_lag
 %Uncomment one of the below to get the plot desired
 %bode(tp)
 %step(tp/(1+tp))
