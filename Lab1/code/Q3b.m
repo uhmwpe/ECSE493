@@ -15,4 +15,6 @@ tp_lag = tf(lagnum, lagden);
 %bode(tp_lead)
 %step(tp_lead/(1+tp_lead))
 %bode(tp_lag)
-step(tp_lag/(1+tp_lag))
+%step(tp_lag/(1+tp_lag))
+%bode(tp_lead*tp_lag)
+step(tp_lead*tp_lag/(1+tp_lead*tp_lag))
