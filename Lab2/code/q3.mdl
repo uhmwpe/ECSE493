@@ -1,12 +1,12 @@
 Model {
-  Name			  "q2"
+  Name			  "q3"
   Version		  7.8
   MdlSubVersion		  0
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.3"
+    ComputedModelVersion    "1.5"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -29,9 +29,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "ichan10"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sat Oct 20 23:19:46 2018"
+  LastModifiedDate	  "Sun Oct 21 01:48:18 2018"
   RTWModifiedTimeStamp	  461954987
-  ModelVersionFormat	  "1.%<AutoIncrement:3>"
+  ModelVersionFormat	  "1.%<AutoIncrement:5>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -68,13 +68,13 @@ Model {
     $PropName		    "DataLoggingOverride"
     $ObjectID		    1
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
-    model_		    "q2"
+    model_		    "q3"
     signals_		    []
     overrideMode_	    [0U]
     Array {
       Type		      "Cell"
       Dimension		      1
-      Cell		      "q2"
+      Cell		      "q3"
       PropName		      "logAsSpecifiedByModels_"
     }
     Array {
@@ -818,19 +818,6 @@ Model {
   }
   BlockParameterDefaults {
     Block {
-      BlockType		      Constant
-      Value		      "1"
-      VectorParams1D	      on
-      SamplingMode	      "Sample based"
-      OutMin		      "[]"
-      OutMax		      "[]"
-      OutDataTypeStr	      "Inherit: Inherit from 'Constant value'"
-      LockScale		      off
-      SampleTime	      "inf"
-      FramePeriod	      "inf"
-      PreserveConstantTs      off
-    }
-    Block {
       BlockType		      Derivative
       CoefficientInTFapproximation "inf"
     }
@@ -882,6 +869,15 @@ Model {
       SampleTime	      "-1"
     }
     Block {
+      BlockType		      SignalGenerator
+      WaveForm		      "sine"
+      TimeSource	      "Use simulation time"
+      Amplitude		      "1"
+      Frequency		      "1"
+      Units		      "Hertz"
+      VectorParams1D	      on
+    }
+    Block {
       BlockType		      Sum
       IconShape		      "rectangular"
       Inputs		      "++"
@@ -916,7 +912,7 @@ Model {
     }
   }
   System {
-    Name		    "q2"
+    Name		    "q3"
     Location		    [515, 252, 1585, 627]
     Open		    on
     ModelBrowserVisibility  off
@@ -931,15 +927,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "107"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "23"
-    Block {
-      BlockType		      Constant
-      Name		      "Constant"
-      SID		      "20"
-      Position		      [135, 40, 165, 70]
-      ZOrder		      -4
-      Value		      "0.15"
-    }
+    SIDHighWatermark	    "25"
     Block {
       BlockType		      Gain
       Name		      "Gain"
@@ -1118,7 +1106,7 @@ Model {
       Position		      [755, 99, 785, 131]
       ZOrder		      -3
       Floating		      off
-      Location		      [1, 48, 1681, 1009]
+      Location		      [691, 92, 1651, 436]
       Open		      off
       NumInputPorts	      "1"
       List {
@@ -1167,6 +1155,16 @@ Model {
       InputPortMap	      "u0"
       UpperLimit	      "5"
       LowerLimit	      "-5"
+    }
+    Block {
+      BlockType		      SignalGenerator
+      Name		      "Signal\nGenerator"
+      SID		      "25"
+      Ports		      [0, 1]
+      Position		      [135, 40, 165, 70]
+      ZOrder		      -19
+      Amplitude		      "0.15"
+      Frequency		      "30"
     }
     Block {
       BlockType		      Sum
@@ -1294,7 +1292,7 @@ Model {
       DstPort		      1
     }
     Line {
-      SrcBlock		      "Constant"
+      SrcBlock		      "Signal\nGenerator"
       SrcPort		      1
       DstBlock		      "Sum"
       DstPort		      1
