@@ -917,7 +917,7 @@ Model {
   }
   System {
     Name		    "q2"
-    Location		    [604, 212, 1674, 588]
+    Location		    [515, 252, 1585, 627]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    212
@@ -946,7 +946,7 @@ Model {
       SID		      "22"
       Position		      [245, 40, 275, 70]
       ZOrder		      -8
-      Gain		      "0.2"
+      Gain		      "200"
       ParamDataTypeStr	      "Inherit: Inherit via internal rule"
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
       SaturateOnIntegerOverflow	off
@@ -1145,6 +1145,7 @@ Model {
       SID		      "8"
       Position		      [635, 100, 665, 130]
       ZOrder		      -8
+      Gain		      "0.000028"
       ParamDataTypeStr	      "Inherit: Inherit via internal rule"
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
       SaturateOnIntegerOverflow	off
@@ -1265,20 +1266,17 @@ Model {
 	DstBlock		"Position derivative"
 	DstPort			1
       }
+      Branch {
+	Points			[0, 150; -505, 0]
+	DstBlock		"Sum"
+	DstPort			2
+      }
     }
     Line {
       SrcBlock		      "Position derivative"
       SrcPort		      1
-      Points		      [10, 0]
-      Branch {
-	DstBlock		"Transfer Fcn"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, 240; -535, 0]
-	DstBlock		"Sum"
-	DstPort			2
-      }
+      DstBlock		      "Transfer Fcn"
+      DstPort		      1
     }
     Line {
       SrcBlock		      "Transfer Fcn"
