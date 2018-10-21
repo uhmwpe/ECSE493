@@ -1187,7 +1187,7 @@ Model {
       Name		      "To Workspace"
       SID		      "18"
       Ports		      [1]
-      Position		      [920, 25, 980, 55]
+      Position		      [835, 190, 895, 220]
       ZOrder		      -7
       VariableName	      "simout"
       MaxDataPoints	      "inf"
@@ -1258,10 +1258,6 @@ Model {
       SrcPort		      1
       Points		      [40, 0]
       Branch {
-	DstBlock		"Position"
-	DstPort			1
-      }
-      Branch {
 	Points			[-35, 0; 0, -75]
 	DstBlock		"Position derivative"
 	DstPort			1
@@ -1270,6 +1266,18 @@ Model {
 	Points			[0, 150; -505, 0]
 	DstBlock		"Sum"
 	DstPort			2
+      }
+      Branch {
+	Points			[20, 0]
+	Branch {
+	  DstBlock		  "Position"
+	  DstPort		  1
+	}
+	Branch {
+	  Points		  [0, 90]
+	  DstBlock		  "To Workspace"
+	  DstPort		  1
+	}
       }
     }
     Line {
@@ -1281,16 +1289,9 @@ Model {
     Line {
       SrcBlock		      "Transfer Fcn"
       SrcPort		      1
-      Points		      [15, 0]
-      Branch {
-	DstBlock		"To Workspace"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, 90]
-	DstBlock		"dP/dt"
-	DstPort			1
-      }
+      Points		      [15, 0; 0, 90]
+      DstBlock		      "dP/dt"
+      DstPort		      1
     }
     Line {
       SrcBlock		      "Constant"
